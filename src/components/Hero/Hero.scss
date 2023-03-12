@@ -1,0 +1,102 @@
+@import "../../mixins.scss";
+@import "../../variables.scss";
+
+.hero {
+	@include flex-all-center;
+	@include fullscreen;
+	position: relative;
+}
+
+.spaces {
+	@include fullscreen;
+	position: fixed;
+	background: radial-gradient(106.39% 106.39% at 50% 100%, #828283 0%, #05132d 100%);
+	top: 0;
+	left: 0;
+	z-index: -1;
+	overflow: hidden;
+
+	.sun {
+		width: 50vh;
+		height: 50vh;
+		position: absolute;
+		left: 50%;
+		bottom: -30vh;
+		background-color: rgba(255, 189, 19);
+		border-radius: 50%;
+		transform: translateX(-50%);
+		z-index: 2;
+    box-shadow: 0 0 50px rgba(255, 189, 19);
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			display: block;
+			width: 200vh;
+			height: 200vh;
+			background-color: rgba(255, 189, 19, 0.1);
+			border-radius: 50%;
+			animation: pulse-ring 10s linear infinite;
+			z-index: 2;
+			transform: translate(-50%, -50%);
+      opacity: 1;
+			filter: blur(50px);
+      animation-delay: -5s;
+		}
+
+		&::before {
+			animation-delay: 0s;
+		}
+	}
+
+  .cloud {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    width: auto;
+		z-index: 0;
+  }
+
+  #cloud1 {
+    animation: cloudLoop 80s linear infinite;
+    opacity: 0.005;
+  }
+  #cloud2 {
+    animation: cloudLoop 40s linear infinite;
+    opacity: 0.015;
+  }
+}
+
+@keyframes pulse-ring {
+	0% {
+		transform: translate(-50%, -50%) scale(0);
+		opacity: 0;
+	}
+	10% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes cloudLoop {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+}
