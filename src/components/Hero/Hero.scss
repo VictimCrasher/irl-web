@@ -2,55 +2,81 @@
 @import "../../variables.scss";
 
 .hero {
-	@include flex-all-center;
-	@include fullscreen;
-	position: relative;
+  @include flex-all-center;
+  @include fullscreen;
+  position: relative;
+
+  .hero-flex {
+    @include flex-all-center;
+    flex-direction: column;
+    gap: 6.4rem;
+
+    @for $i from 1 to 10 {
+      & > *:nth-child(#{$i}) {
+        @include show-animation;
+        animation-delay: ($i - 1) * 1s + 0.25s;
+      }
+    }
+  }
+
+  .super-big-headline {
+    font-weight: 800;
+    font-size: clamp(15vh, 15rem, 15vh);
+    text-align: center;
+    line-height: 1.1;
+    margin: 0;
+    max-width: 75vw;
+  }
 }
 
 .spaces {
-	@include fullscreen;
-	position: fixed;
-	background: radial-gradient(106.39% 106.39% at 50% 100%, #828283 0%, #05132d 100%);
-	top: 0;
-	left: 0;
-	z-index: -1;
-	overflow: hidden;
+  @include fullscreen;
+  position: fixed;
+  background: radial-gradient(
+    106.39% 106.39% at 50% 100%,
+    #828283 0%,
+    #05132d 100%
+  );
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
 
-	.sun {
-		width: 50vh;
-		height: 50vh;
-		position: absolute;
-		left: 50%;
-		bottom: -30vh;
-		background-color: rgba(255, 189, 19);
-		border-radius: 50%;
-		transform: translateX(-50%);
-		z-index: 2;
+  .sun {
+    width: 50vh;
+    height: 50vh;
+    position: absolute;
+    left: 50%;
+    bottom: -30vh;
+    background-color: rgba(255, 189, 19);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
     box-shadow: 0 0 50px rgba(255, 189, 19);
 
-		&::before,
-		&::after {
-			content: "";
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			display: block;
-			width: 200vh;
-			height: 200vh;
-			background-color: rgba(255, 189, 19, 0.1);
-			border-radius: 50%;
-			animation: pulse-ring 10s linear infinite;
-			z-index: 2;
-			transform: translate(-50%, -50%);
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      display: block;
+      width: 200vh;
+      height: 200vh;
+      background-color: rgba(255, 189, 19, 0.1);
+      border-radius: 50%;
+      animation: pulse-ring 6s linear infinite;
+      z-index: 2;
+      transform: translate(-50%, -50%);
       opacity: 1;
-			filter: blur(50px);
-      animation-delay: -5s;
-		}
+      filter: blur(10px);
+      animation-delay: -3s;
+    }
 
-		&::before {
-			animation-delay: 0s;
-		}
-	}
+    &::before {
+      animation-delay: 0s;
+    }
+  }
 
   .cloud {
     position: absolute;
@@ -58,36 +84,66 @@
     left: 0;
     height: 100vh;
     width: auto;
-		z-index: 0;
+    z-index: 0;
   }
 
   #cloud1 {
     animation: cloudLoop 80s linear infinite;
-    opacity: 0.005;
+    opacity: 0.07;
   }
   #cloud2 {
     animation: cloudLoop 40s linear infinite;
-    opacity: 0.015;
+    opacity: 0.08;
+  }
+
+  .stars {
+    position: absolute;
+    z-index: 1;
+    width: 0.2rem;
+    height: 0.2rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 0px 25px 10px #ffffff40;
+    opacity: 0;
+    animation: pulse-star 5s linear infinite;
+  }
+}
+
+@keyframes pulse-star {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
 @keyframes pulse-ring {
-	0% {
-		transform: translate(-50%, -50%) scale(0);
-		opacity: 0;
-	}
-	10% {
-		opacity: 0;
-	}
-	50% {
-		opacity: 1;
-	}
-	80% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes cloudLoop {

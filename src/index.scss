@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 @import "variables.scss";
+@import "mixins.scss";
 
 :root {
 	font-family: Plus Jakarta Sans, Helvetica, Arial, sans-serif;
@@ -15,13 +16,58 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
+	font-size: 62.5%;
+	line-height: 1.5;
 }
 
 :root * {
   box-sizing: border-box;
 }
 
-html, body {
+// reset button
+button {
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	overflow: visible;
+
+	background: transparent;
+
+	/* inherit font & color from ancestor */
+	color: inherit;
+	font: inherit;
+
+	/* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+	line-height: normal;
+
+	/* Corrects font smoothing for webkit */
+	-webkit-font-smoothing: inherit;
+	-moz-osx-font-smoothing: inherit;
+}
+
+html, body, * {
   padding: 0;
   margin: 0;
+}
+
+.hero-color {
+	color: $hero;
+}
+
+.subheading {
+	@include fontSize32;
+}
+
+.primary-btn {
+	padding: 2.4rem 3.2rem;
+	@include fontSize32;
+	cursor: pointer;
+	color: $dark;
+	font-weight: 700;
+	line-height: 1.1;
+
+	background: $hero;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+	border-radius: 0.8rem;
 }
