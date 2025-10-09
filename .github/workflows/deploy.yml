@@ -22,16 +22,29 @@ jobs:
         run: |
           npm ci
           npm run build
+          
+      - name: List build artifacts
+        run: |
+          echo "Build artifacts:"
+          ls -la dist/
+          echo "Checking if index.html exists:"
+          test -f dist/index.html && echo "✅ index.html found" || echo "❌ index.html missing"
 
       # Upload the contents of dist/ to your docroot via SFTP
       - name: SFTP Deploy
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.SFTP_HOST }}
           port: ${{ secrets.SFTP_PORT }}
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASS }}
-          local_path: ./dist/*
-          remote_path: me.victim-crasher.com/
-          delete_remote_files: true
-          sftp_only: true
+          local-dir: ./dist/
+          server-dir: me.victim-crasher.com/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.DS_Store
+            **/Thumbs.db
+          log-level: verbose
+          dry-run: false
