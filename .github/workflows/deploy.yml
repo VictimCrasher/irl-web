@@ -1,9 +1,9 @@
-name: Deploy to cPanel
+name: Deploy Vite to me.victim-crasher.com
 
 on:
   push:
-    branches: [ master ]
-  workflow_dispatch:
+    branches: [ master ]   # change if your default branch differs
+  workflow_dispatch:     # allow manual run
 
 jobs:
   build-and-deploy:
@@ -25,10 +25,13 @@ jobs:
 
       # Upload the contents of dist/ to your docroot via SFTP
       - name: SFTP Deploy
-        uses: jakirseu/SFTP-Action-cPanel@main
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          host: ${{ secrets.SFTP_HOST }}
+          server: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT }}
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASS }}
-          source: ./dist/*
-          target: /home/victimcr/me.victim-crasher.com/
+          local_path: ./dist/*
+          remote_path: me.victim-crasher.com/
+          delete_remote_files: true
+          sftp_only: true
