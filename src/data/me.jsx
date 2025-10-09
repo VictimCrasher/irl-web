@@ -15,8 +15,8 @@ export const ME = {
     "I'm a result-oriented technology professional with proven versatility across web development, machine learning, and graphic design.",
     'Consistently delivers high-quality work on time, demonstrating a strong ability to quickly master new technologies and domains.'
   ],
-  cv: 'src/data/files/CV.pdf',
-  photo: 'src/data/images/me.png',
+  cv: 'data/files/CV.pdf',
+  photo: 'data/images/me.png',
   details: [
     {
       name: 'Date of Birth',
