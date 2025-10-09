@@ -1,27 +1,46 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
-@import "variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import 'variables.scss';
+@import 'mixins.scss';
 
 :root {
-	font-family: Plus Jakarta Sans, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
-	font-weight: 400;
+  font-family: Plus Jakarta Sans, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 
-	color-scheme: light dark;
-	color: $light;
-	background-color: $dark;
+  color-scheme: light dark;
+  color: $light;
+  background-color: $dark;
 
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  @media (max-width: 768px) {
+    font-size: 90%;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 80%;
+  }
 }
 
 :root * {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body,
+* {
   padding: 0;
   margin: 0;
+}
+
+.hero-color {
+  color: $hero;
+}
+
+.subheading {
+  @include fontSize32;
 }
