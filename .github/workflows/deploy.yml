@@ -8,6 +8,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: production
 
     steps:
       - name: Checkout
@@ -28,7 +29,7 @@ jobs:
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server: ${{ secrets.SFTP_HOST }}          # e.g. sftp.victim-crasher.com or your server IP
-          port: 22            # usually 22
+          port: ${{ secrets.SFTP_PORT }}            # usually 22
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASS }}        # or set 'ssh_private_key' instead
           local_path: ./dist/*                      # upload built files
@@ -36,6 +37,3 @@ jobs:
           # optional, but helpful:
           delete_remote_files: true                 # clean remote before upload
           sftp_only: true                           # don’t try ssh
-          exclude: |
-            **/.git*
-            **/node_modules/**
