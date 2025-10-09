@@ -29,7 +29,7 @@ jobs:
         with:
           server: ${{ secrets.SFTP_HOST }}          # e.g. sftp.victim-crasher.com or your server IP
           port: ${{ secrets.SFTP_PORT }}            # usually 22
-          username: ${{ secretsSFTP_USER }}
+          username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASS }}        # or set 'ssh_private_key' instead
           local_path: ./dist/*                      # upload built files
           remote_path: /home/victimcr/me.victim-crasher.com/
