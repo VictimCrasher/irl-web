@@ -23,14 +23,14 @@ const About = () => {
             About
           </Typography>
         </Stack>
-        <Stack direction={{ xs: 'column', lg: 'row' }} justifyContent="center" spacing={3} sx={{ width: '100%' }}>
+        <Stack direction={{ xs: 'column', lg: 'row' }} justifyContent="center" alignItems="center" spacing={6} sx={{ width: '100%' }}>
           {data?.photo && (
             <Box
               component="img"
               src={data.photo}
               alt="Achmad Firdaus Adinegoro - Frontend Developer and AI Developer professional headshot"
-              width={96}
-              height={96}
+              width={250}
+              height={250}
               sx={{ borderRadius: '50%', border: '2px solid #FFFFFF', flexShrink: 0 }}
             />
           )}
@@ -73,7 +73,7 @@ const About = () => {
           ))}
           <Grid item size={{ xs: 12 }}>
             <DetailItem name="Links">
-              <Stack direction="row" spacing={2} flexWrap="wrap">
+              <Stack direction="row" gap={2} flexWrap="wrap">
                 {data.links.map((link, index) => (
                   <LinksItem {...link} key={index} />
                 ))}
