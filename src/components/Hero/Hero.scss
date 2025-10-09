@@ -5,11 +5,24 @@
 	@include flex-all-center;
 	@include fullscreen;
 	position: relative;
+	z-index: 0;
+
+	.hero-title {
+		font-size: 7rem;
+
+		@media (max-width: 768px) {
+			font-size: 4rem;
+		}
+
+		@media (max-width: 480px) {
+			font-size: 3rem;
+		}
+	}
 }
 
 .spaces {
 	@include fullscreen;
-	position: fixed;
+	position: absolute;
 	background: radial-gradient(106.39% 106.39% at 50% 100%, #828283 0%, #05132d 100%);
 	top: 0;
 	left: 0;
@@ -17,11 +30,11 @@
 	overflow: hidden;
 
 	.sun {
-		width: 50vh;
-		height: 50vh;
+		width: 50dvh;
+		height: 50dvh;
 		position: absolute;
 		left: 50%;
-		bottom: -30vh;
+		bottom: -30dvh;
 		background-color: rgba(255, 189, 19);
 		border-radius: 50%;
 		transform: translateX(-50%);
@@ -35,8 +48,10 @@
 			left: 50%;
 			top: 50%;
 			display: block;
-			width: 200vh;
-			height: 200vh;
+			width: 150dvh;
+			height: 150dvh;
+			max-width: 200vw;
+			max-height: 200vh;
 			background-color: rgba(255, 189, 19, 0.1);
 			border-radius: 50%;
 			animation: pulse-ring 10s linear infinite;
@@ -56,7 +71,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 100vh;
+    height: 100dvh;
     width: auto;
 		z-index: 0;
   }

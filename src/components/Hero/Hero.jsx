@@ -1,14 +1,38 @@
-import React from "react";
-import "./Hero.scss";
-import Spaces from "./Spaces";
+import React from 'react';
+import './Hero.scss';
+import Spaces from './Spaces';
+import { Stack, Typography, Button } from '@mui/material';
 
 const Hero = () => {
-	return (
-		<div className="hero">
-			<Spaces />
-			<div>Hero</div>
-		</div>
-	);
+  const onScroll = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  };
+
+  return (
+    <Stack spacing={8} className="hero">
+      <Spaces />
+      <Stack direction="row" spacing={2} flexWrap="wrap" justifyContent="center" alignItems="center">
+        <Typography variant="h1" className="hero-title">
+          Achmad
+        </Typography>
+        <Typography variant="h1" color="primary" className="hero-title">
+          Firdaus
+        </Typography>
+        <Typography variant="h1" className="hero-title">
+          Adinegoro
+        </Typography>
+      </Stack>
+      <Typography variant="h5" textAlign="center">
+        Frontend Developer • AI Developer • Freelancer
+      </Typography>
+      <Button variant="contained" color="primary" size="large" onClick={onScroll}>
+        Learn More
+      </Button>
+    </Stack>
+  );
 };
 
 export default Hero;

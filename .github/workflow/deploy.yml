@@ -1,0 +1,41 @@
+name: Deploy Vite to me.victim-crasher.com
+
+on:
+  push:
+    branches: [ master ]   # change if your default branch differs
+  workflow_dispatch:     # allow manual run
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install & Build
+        run: |
+          npm ci
+          npm run build
+
+      # Upload the contents of dist/ to your docroot via SFTP
+      - name: SFTP Deploy
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          server: ${{ secrets.SFTP_HOST }}          # e.g. sftp.victim-crasher.com or your server IP
+          port: ${{ secrets.SFTP_PORT }}            # usually 22
+          username: ${{ secretsSFTP_USER }}
+          password: ${{ secrets.SFTP_PASS }}        # or set 'ssh_private_key' instead
+          local_path: ./dist/*                      # upload built files
+          remote_path: /home/victimcr/me.victim-crasher.com/
+          # optional, but helpful:
+          delete_remote_files: true                 # clean remote before upload
+          sftp_only: true                           # don’t try ssh
+          exclude: |
+            **/.git*
+            **/node_modules/**
