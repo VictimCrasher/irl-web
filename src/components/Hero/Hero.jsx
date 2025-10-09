@@ -12,7 +12,7 @@ const Hero = () => {
   };
 
   return (
-    <Stack spacing={8} className="hero">
+    <Stack spacing={6} className="hero">
       <Spaces />
       <Stack direction="row" spacing={2} flexWrap="wrap" justifyContent="center" alignItems="center">
         <Typography variant="h1" className="hero-title">
@@ -28,7 +28,7 @@ const Hero = () => {
       <Typography variant="h5" textAlign="center">
         Frontend Developer • AI Developer • Freelancer
       </Typography>
-      <Button variant="contained" color="primary" size="large" onClick={onScroll}>
+      <Button variant="contained" color="primary" size="large" sx={{ fontSize: '1.2rem', color: 'secondary.main' }} onClick={onScroll}>
         Learn More
       </Button>
     </Stack>
