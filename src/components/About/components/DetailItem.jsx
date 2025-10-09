@@ -9,7 +9,7 @@ const DetailItem = ({ name, value, children }) => {
 
   return (
     <Stack spacing={2} width="100%">
-      <Typography variant="h6" fontWeight={800}>
+      <Typography variant="h5" fontWeight={800}>
         {name}
       </Typography>
       {renderValue()}

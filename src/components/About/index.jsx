@@ -28,7 +28,7 @@ const About = () => {
             <Box
               component="img"
               src={data.photo}
-              alt="photo"
+              alt="Achmad Firdaus Adinegoro - Frontend Developer and AI Developer professional headshot"
               width={96}
               height={96}
               sx={{ borderRadius: '50%', border: '2px solid #FFFFFF', flexShrink: 0 }}

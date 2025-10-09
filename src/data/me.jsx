@@ -9,14 +9,17 @@ import {
   CodepenLogoIcon
 } from '@phosphor-icons/react';
 
+import cv from './files/CV.pdf';
+import photo from './images/me.png';
+
 export const ME = {
   name: 'Achmad Firdaus Adinegoro',
   description: [
     "I'm a result-oriented technology professional with proven versatility across web development, machine learning, and graphic design.",
     'Consistently delivers high-quality work on time, demonstrating a strong ability to quickly master new technologies and domains.'
   ],
-  cv: 'data/files/CV.pdf',
-  photo: 'data/images/me.png',
+  cv: cv,
+  photo: photo,
   details: [
     {
       name: 'Date of Birth',

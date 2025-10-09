@@ -1,0 +1,20 @@
+{
+  "name": "Achmad Firdaus Adinegoro - Portfolio",
+  "short_name": "Achmad Firdaus Adinegoro",
+  "description": "Frontend Developer & AI Developer Portfolio - Result-oriented technology professional specializing in web development, machine learning, and graphic design.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1976d2",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["portfolio", "developer", "technology"],
+  "lang": "en",
+  "dir": "ltr"
+}
