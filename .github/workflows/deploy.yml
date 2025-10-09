@@ -33,5 +33,5 @@ jobs:
           password: ${{ secrets.SFTP_PASS }}
           local_path: ./dist/*
           remote_path: /home/victimcr/me.victim-crasher.com/
-          delete_remote_files: true
+          delete_remote_files: false
           sftp_only: true
