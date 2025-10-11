@@ -6,7 +6,7 @@ import { Stack, Typography, Button } from '@mui/material';
 const Hero = () => {
   const onScroll = () => {
     window.scrollTo({
-      top: window.innerHeight,
+      top: window.innerHeight - 65,
       behavior: 'smooth'
     });
   };
@@ -26,7 +26,7 @@ const Hero = () => {
         </Typography>
       </Stack>
       <Typography variant="h5" textAlign="center">
-        Frontend Developer • AI Developer • Freelancer
+        Frontend Developer • AI Developer • Graphic Designer • Freelancer
       </Typography>
       <Button variant="contained" color="primary" size="large" sx={{ fontSize: '1.2rem', color: 'secondary.main' }} onClick={onScroll}>
         Learn More

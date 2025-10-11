@@ -1,0 +1,51 @@
+@import '../../variables.scss';
+
+.header {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: $dark;
+  padding: 1rem;
+  border-bottom: 1px solid $light;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.header,
+#mobile-menu {
+  .menu-item {
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0.5;
+
+    &.active,
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+#mobile-menu {
+  & > .MuiDrawer-paper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100dvh;
+  }
+
+  .MuiIconButton-root.close-button {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    top: 1rem;
+    right: 1rem;
+  }
+}
