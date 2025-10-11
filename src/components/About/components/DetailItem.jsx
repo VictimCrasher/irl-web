@@ -4,7 +4,7 @@ const DetailItem = ({ name, value, children }) => {
   const renderValue = () => {
     if (children) return children;
 
-    return <Typography variant="body1">{value}</Typography>;
+    return <Typography variant="body1" sx={{ width: 'fit-content' }}>{value}</Typography>;
   };
 
   return (

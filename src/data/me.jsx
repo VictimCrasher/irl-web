@@ -36,7 +36,7 @@ export const ME = {
     {
       name: 'Email',
       value: (
-        <Link href="mailto:achmadfirdausadinegoro@gmail.com">
+        <Link href="mailto:achmadfirdausadinegoro@gmail.com" target="_blank">
           <Typography variant="body1">achmadfirdausadinegoro@gmail.com</Typography>
         </Link>
       )
