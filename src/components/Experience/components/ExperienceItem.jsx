@@ -36,7 +36,7 @@ const ExperienceItem = (experience) => {
             </li>
           ))}
         </ul>
-        <Stack direction="row" spacing={0.5} flexWrap="wrap">
+        <Stack direction="row" gap={0.5} flexWrap="wrap">
           {experience.keyTechnologies.map((technology, index) => (
             <Chip key={index} label={technology} size='small' sx={{ width: 'fit-content' }} />
           ))}
