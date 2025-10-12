@@ -12,7 +12,7 @@ const Hero = () => {
   };
 
   return (
-    <Stack spacing={6} className="hero">
+    <Stack spacing={6} id="hero" className="hero">
       <Spaces />
       <Stack direction="row" spacing={2} flexWrap="wrap" justifyContent="center" alignItems="center">
         <Typography variant="h1" className="hero-title">

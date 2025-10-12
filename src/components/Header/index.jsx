@@ -18,7 +18,8 @@ const Header = () => {
 
   // Intersection Observer for active section tracking
   useEffect(() => {
-    const sections = HEADER_DATA.menus.map((menu) => document.getElementById(menu.id)).filter(Boolean);
+    let sections = [document.getElementById('hero')];
+    sections = sections.concat(HEADER_DATA.menus.map((menu) => document.getElementById(menu.id)).filter(Boolean));
 
     if (sections.length === 0) return;
 
@@ -122,7 +123,7 @@ const Header = () => {
     <Box className={`header ${showHeader ? 'show' : ''}`}>
       <Container maxWidth="lg">
         <Stack direction="row" justifyContent="space-between" alignItems="center">
-          {HEADER_DATA.title}
+          {HEADER_DATA.title(() => handleMenuClick('hero'))}
 
           {isDesktop && renderDesktopMenu()}
           {!isDesktop && renderMobileMenu()}

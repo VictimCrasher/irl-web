@@ -1,0 +1,90 @@
+// Portfolio component styles
+.portfolio-container {
+  .slick-dots-custom {
+    bottom: -40px;
+    
+    li {
+      margin: 0 4px;
+      
+      button {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.3);
+        border: none;
+        transition: all 0.3s ease;
+        
+        &:before {
+          display: none;
+        }
+        
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+      }
+      
+      &.slick-active button {
+        background-color: #1976d2;
+        transform: scale(1.2);
+      }
+    }
+  }
+  
+  .slick-prev,
+  .slick-next {
+    z-index: 2;
+    
+    &:before {
+      display: none;
+    }
+  }
+  
+  .slick-slide {
+    padding: 0 4px;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .portfolio-container {
+    .slick-dots-custom {
+      bottom: -30px;
+      
+      li button {
+        width: 6px;
+        height: 6px;
+      }
+    }
+  }
+}
+
+// Image modal styles
+.image-modal {
+  .MuiDialog-paper {
+    background: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(10px);
+  }
+}
+
+// Portfolio card hover effects
+.portfolio-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Media carousel styles
+.media-carousel {
+  .slick-slide {
+    outline: none;
+  }
+  
+  .slick-dots {
+    position: relative;
+    bottom: 0;
+    margin-top: 0;
+  }
+}

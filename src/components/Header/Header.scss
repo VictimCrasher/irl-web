@@ -2,20 +2,28 @@
 
 .header {
   position: fixed;
-  opacity: 0;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: $dark;
   padding: 1rem;
-  border-bottom: 1px solid $light;
-  transition: opacity 0.3s ease-in-out;
-  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+
+  & #title {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+    pointer-events: none;
+  }
 
   &.show {
-    opacity: 1;
-    pointer-events: auto;
+    background-color: $dark;
+    border-bottom: 1px solid $light;
+
+    & #title {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 }
 

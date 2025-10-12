@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Skeleton } from '@mui/material';
-import { ImageIcon } from '@phosphor-icons/react';
+import { Skeleton, Box } from '@mui/material';
+import { Play } from '@phosphor-icons/react';
 
-const ImageLazy = ({ 
+const IframeLazy = ({ 
   src, 
-  alt, 
+  title = "Embedded content",
   className = "",
   style = {},
   onLoad,
@@ -13,21 +13,23 @@ const ImageLazy = ({
   rootMargin = "50px",
   skeletonVariant = "rectangular",
   skeletonAnimation = "wave",
-  width,
-  height,
-  imageStyle = {},
+  width = "100%",
+  height = "100%",
+  allowFullScreen = true,
+  allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+  showPlayIcon = true,
   ...props 
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const [hasError, setHasError] = useState(false);
-  const imgRef = useRef(null);
+  const iframeRef = useRef(null);
   const observerRef = useRef(null);
 
   useEffect(() => {
-    const img = imgRef.current;
+    const iframe = iframeRef.current;
     
-    if (!img) return;
+    if (!iframe) return;
 
     // Create intersection observer
     observerRef.current = new IntersectionObserver(
@@ -35,7 +37,7 @@ const ImageLazy = ({
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsInView(true);
-            // Stop observing once image is in view
+            // Stop observing once iframe is in view
             observerRef.current?.unobserve(entry.target);
           }
         });
@@ -47,7 +49,7 @@ const ImageLazy = ({
     );
 
     // Start observing
-    observerRef.current.observe(img);
+    observerRef.current.observe(iframe);
 
     // Cleanup
     return () => {
@@ -69,11 +71,12 @@ const ImageLazy = ({
 
   return (
     <div 
-      ref={imgRef}
-      className={`lazy-image-container ${className}`}
+      ref={iframeRef}
+      className={`lazy-iframe-container ${className}`}
       style={{
         position: 'relative',
         overflow: 'hidden',
+        backgroundColor: '#000',
         ...style
       }}
       {...props}
@@ -89,40 +92,70 @@ const ImageLazy = ({
             left: 0,
             width: '100%',
             height: '100%',
+            zIndex: 1,
           }}
         />
       )}
 
-      {/* Actual image */}
+      {/* Play icon overlay */}
+      {!isLoaded && !hasError && showPlayIcon && (
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 2,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '50%',
+            width: 60,
+            height: 60,
+            color: 'white',
+            transition: 'all 0.3s ease',
+            '&:hover': {
+              backgroundColor: 'rgba(0, 0, 0, 0.9)',
+              transform: 'translate(-50%, -50%) scale(1.1)',
+            },
+          }}
+        >
+          <Play size={24} weight="fill" />
+        </Box>
+      )}
+
+      {/* Actual iframe */}
       {isInView && (
-        <img
+        <iframe
           src={src}
-          alt={alt}
+          title={title}
           onLoad={handleLoad}
           onError={handleError}
+          allowFullScreen={allowFullScreen}
+          allow={allow}
           style={{
             position: 'absolute',
             top: 0,
             left: 0,
-            width: width || '100%',
-            height: height || '100%',
-            objectFit: 'cover',
+            width: width,
+            height: height,
+            border: 'none',
             opacity: isLoaded ? 1 : 0,
             transition: 'opacity 0.3s ease',
-            ...imageStyle,
           }}
         />
       )}
 
       {/* Error state */}
       {hasError && (
-        <div
-          style={{
+        <Box
+          sx={{
             position: 'absolute',
             top: 0,
             left: 0,
-            width: width || '100%',
-            height: height || '100%',
+            width: '100%',
+            height: '100%',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -133,12 +166,12 @@ const ImageLazy = ({
             border: '2px dashed #ddd',
           }}
         >
-          <ImageIcon size={32} weight="light" style={{ marginBottom: '8px', opacity: 0.5 }} />
-          <span>Failed to load image</span>
-        </div>
+          <Play size={32} weight="light" style={{ marginBottom: '8px', opacity: 0.5 }} />
+          <span>Failed to load video</span>
+        </Box>
       )}
     </div>
   );
 };
 
-export default ImageLazy;
+export default IframeLazy;

@@ -11,8 +11,8 @@ export const navTypographyProps = {
 };
 
 export const HEADER_DATA = {
-  title: (
-    <Stack direction="row" columnGap={0.5} rowGap={0} flexWrap="wrap">
+  title: (onClick) => (
+    <Stack direction="row" columnGap={0.5} rowGap={0} flexWrap="wrap" id="title" onClick={onClick}>
       <Typography {...titleTypographyProps}>Achmad</Typography>
       <Typography {...titleTypographyProps} color="primary">
         Firdaus
@@ -29,17 +29,17 @@ export const HEADER_DATA = {
       name: 'Experience',
       id: 'experience'
     },
-    // {
-    //   name: 'Skills',
-    //   id: 'skills'
-    // },
-    // {
-    //   name: 'Portfolio',
-    //   id: 'portfolio'
-    // },
-    // {
-    //   name: 'Contact',
-    //   id: 'contact'
-    // }
+    {
+      name: 'Skills',
+      id: 'skills'
+    },
+    {
+      name: 'Portfolio',
+      id: 'portfolio'
+    },
+    {
+      name: 'Contact',
+      id: 'contact'
+    }
   ]
 };
