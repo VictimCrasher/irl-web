@@ -164,7 +164,7 @@ export const FEATURED_PROJECTS = [
     type: 'Low Level Programming',
     keyTechnologies: ['AVR Assembly'],
     description:
-      "Guess this Hexadecimal! is a game where the player has to guess the hexadecimal value of the given number.\nConsists of 10 levels, the game is a simple guessing game that tests the player's knowledge of hexadecimal numbers.\nMade as a final project for the course of Computer Organization at Universitas Indonesia.",
+      "Guess this Hexadecimal! is a game where the player has to guess the hexadecimal value of the given number.\nMade as a final project for the course of Computer Organization at Universitas Indonesia.",
     role: 'Sole Developer',
     link: null,
     media: [
