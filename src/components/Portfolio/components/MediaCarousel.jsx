@@ -168,7 +168,9 @@ const MediaCarousel = ({ media = [] }) => {
             height: 300,
             borderRadius: 2,
             overflow: 'hidden',
-            cursor: item.type === 'image' ? 'pointer' : 'default'
+            cursor: item.type === 'image' ? 'pointer' : 'default',
+            px: 1,
+            pt: 1
           }}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
@@ -189,8 +191,10 @@ const MediaCarousel = ({ media = [] }) => {
               style={{
                 width: '100%',
                 height: '100%',
-                objectFit: 'cover'
+                borderRadius: '8px',
+                backgroundColor: theme.palette.secondary.dark
               }}
+              imageStyle={{ objectFit: 'contain' }}
             />
           ) : (
             <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
@@ -199,7 +203,8 @@ const MediaCarousel = ({ media = [] }) => {
                 title="Portfolio video"
                 style={{
                   width: '100%',
-                  height: '100%'
+                  height: '100%',
+                  borderRadius: 2
                 }}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -266,7 +271,7 @@ const MediaCarousel = ({ media = [] }) => {
                 sx={{
                   position: 'relative',
                   width: '100%',
-                  height: 300,
+                  height: 270,
                   borderRadius: 2,
                   overflow: 'hidden',
                   cursor: item.type === 'image' ? 'pointer' : 'default'

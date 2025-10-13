@@ -31,6 +31,46 @@ export const FEATURED_PROJECTS = [
     ]
   },
   {
+    title: 'Wasimil - Guest Portal',
+    year: '2023 - 2025',
+    type: 'Web Development',
+    keyTechnologies: ['ReactJS', 'Material UI', 'GraphQL'],
+    description:
+      'A guest portal for hotel guest, allowing guests to do online check in and view their stay information on the comfort of their own home.\nResponsible on creating and maintaining the application from the ground up.',
+    role: 'Feature Lead and Main Front-end Developer',
+    link: 'https://www.wasimil.com/',
+    media: [
+      {
+        type: 'image',
+        url: 'https://i.imgur.com/aqKCpTE.png'
+      },
+      {
+        type: 'image',
+        url: 'https://i.imgur.com/KLd361a.png'
+      },
+      {
+        type: 'image',
+        url: 'https://i.imgur.com/0dCfTl4.png'
+      }
+    ]
+  },
+  {
+    title: 'Visi Prima Nusantara - Direktori Kampus',
+    year: 2023,
+    type: 'Web Development',
+    keyTechnologies: ['ReactJS', 'Bootstrap', 'scss'],
+    description:
+      'A gateway for students to get college information for both domestic and abroad.\nResponsible on creating and maintaining the application from the ground up and able to deliver the application in record time.',
+    role: 'PIC and Founding Front-end Developer',
+    link: 'https://visiprima.id/',
+    media: [
+      {
+        type: 'image',
+        url: 'https://i.imgur.com/cZHsqwz.png'
+      }
+    ]
+  },
+  {
     title: 'Calibration-less Crowd Analytics',
     year: 2020,
     type: 'Artificial Intelligence',
@@ -80,7 +120,7 @@ export const FEATURED_PROJECTS = [
     type: 'Web Development',
     keyTechnologies: ['HTML', 'CSS', 'Vanilla JS', 'Bootstrap'],
     description:
-      'Redesign the website of the biggest community led pop-culture event in Indonesia, Comic Frontier 9 (2017).\nAlso contributed in the development of the web catalog page, which becomes the inspiration for the subsequent years.',
+      'Redesign the website of the biggest community led pop-culture event in Indonesia, Comic Frontier 9 (2017).\nAlso contributed in the development of the web catalog page, which becomes the inspiration for the subsequent event iterations.',
     role: 'Sole Developer',
     link: 'https://comifuro.net/',
     media: [
@@ -119,6 +159,22 @@ export const FEATURED_PROJECTS = [
     ]
   },
   {
+    title: 'Guess this Hexadecimal!',
+    year: 2016,
+    type: 'Low Level Programming',
+    keyTechnologies: ['AVR Assembly'],
+    description:
+      "Guess this Hexadecimal! is a game where the player has to guess the hexadecimal value of the given number.\nConsists of 10 levels, the game is a simple guessing game that tests the player's knowledge of hexadecimal numbers.\nMade as a final project for the course of Computer Organization at Universitas Indonesia.",
+    role: 'Sole Developer',
+    link: null,
+    media: [
+      {
+        type: 'youtube',
+        url: 'https://www.youtube.com/embed/x8BO62CpR1E'
+      }
+    ]
+  },
+  {
     title: 'Blip Blob Game',
     year: 2016,
     type: 'Game Development',
@@ -137,5 +193,5 @@ export const FEATURED_PROJECTS = [
         url: 'https://www.youtube.com/embed/nsKjwBWKY90'
       }
     ]
-  },
+  }
 ];

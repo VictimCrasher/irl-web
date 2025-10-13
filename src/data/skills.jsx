@@ -42,7 +42,6 @@ export const TOOLS = [
   'ClickUp',
   'Notion',
   'Trello',
-  'Linear',
   'PostHog',
   'Cursor',
   'Adobe XD',
