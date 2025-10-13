@@ -1,4 +1,4 @@
-name: Deploy Vite to me.victim-crasher.com
+name: Deploy Website
 
 on:
   push:
