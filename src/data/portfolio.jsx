@@ -31,6 +31,34 @@ export const FEATURED_PROJECTS = [
     ]
   },
   {
+    title: 'DaMovieDB',
+    year: '2025',
+    type: 'Web Development',
+    keyTechnologies: ['ReactJS', 'Material UI', 'Typescript', 'Firebase'],
+    description:
+      'A responsive movie database website that allows users to search for movies, view details, and add them to their watchlist with authentication handled by Firebase.\nCreates the whole application from the ground up. (Powered by the TMDB API)',
+    role: 'Sole Developer',
+    link: 'https://vic-movies-app.web.app/',
+    media: [
+      {
+        type: 'image',
+        url: 'https://i.imgur.com/ENHyveb.png'
+      },
+      {
+        type: 'image',
+        url: 'https://i.imgur.com/csQzKiU.png'
+      },
+      {
+        type: 'image',
+        url: 'https://i.imgur.com/WYKBNTl.png'
+      },
+      {
+        type: 'youtube',
+        url: 'https://www.youtube.com/embed/pnol7_8232I'
+      }
+    ]
+  },
+  {
     title: 'Wasimil - Guest Portal',
     year: '2023 - 2025',
     type: 'Web Development',
@@ -164,7 +192,7 @@ export const FEATURED_PROJECTS = [
     type: 'Low Level Programming',
     keyTechnologies: ['AVR Assembly'],
     description:
-      "Guess this Hexadecimal! is a game where the player has to guess the hexadecimal value of the given number.\nMade as a final project for the course of Computer Organization at Universitas Indonesia.",
+      'Guess this Hexadecimal! is a game where the player has to guess the hexadecimal value of the given number.\nMade as a final project for the course of Computer Organization at Universitas Indonesia.',
     role: 'Sole Developer',
     link: null,
     media: [

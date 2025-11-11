@@ -33,7 +33,21 @@ export const TECHNICAL_SKILLS = [
   },
   {
     label: 'Intermediate - I have some experience with this skill',
-    values: ['C', 'C++', 'C#', 'PHP', 'Bash', 'PostgreSQL', 'MySQL', 'keras', 'tensorflow', 'PyTorch', 'Django', 'Motion Graphics']
+    values: [
+      'C',
+      'C++',
+      'C#',
+      'PHP',
+      'Bash',
+      'PostgreSQL',
+      'MySQL',
+      'keras',
+      'tensorflow',
+      'PyTorch',
+      'Django',
+      'Motion Graphics',
+      'Typescript'
+    ]
   }
 ];
 
