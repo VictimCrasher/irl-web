@@ -31,6 +31,34 @@ export const FEATURED_PROJECTS = [
     ]
   },
   {
+    title: 'Inktober Archive',
+    year: '2025',
+    type: 'Web Development',
+    keyTechnologies: ['NextJS', 'ReactJS', 'Tailwind CSS', 'Material UI', 'Typescript'],
+    description:
+      'Inktober Archive is a website to showcase my personal Inktober drawings, specifically themed around the game Blue Archive.',
+    role: 'Sole Developer',
+    link: 'https://ba-ink.victim-crasher.com/',
+    media: [
+      {
+        type: 'image',
+        url: 'https://i.imgur.com/noMMD8D.png'
+      },
+      {
+        type: 'image',
+        url: 'https://i.imgur.com/Zv056JX.png'
+      },
+      {
+        type: 'image',
+        url: 'https://i.imgur.com/AvsPy3H.png'
+      },
+      {
+        type: 'youtube',
+        url: 'https://www.youtube.com/embed/QAN8FYgNbq0'
+      }
+    ]
+  },
+  {
     title: 'DaMovieDB',
     year: '2025',
     type: 'Web Development',

@@ -29,7 +29,20 @@ export const TECHNICAL_SKILLS = [
   },
   {
     label: 'Proficient - I use this skill a lot in my career',
-    values: ['Python', 'Jupyter Notebook', 'Java', 'NumPy', 'pandas', 'matplotlib', 'Stream', 'Websocket', 'Boostrap', 'React Bootstrap']
+    values: [
+      'Python',
+      'Jupyter Notebook',
+      'Java',
+      'NumPy',
+      'pandas',
+      'matplotlib',
+      'Stream',
+      'Websocket',
+      'Boostrap',
+      'React Bootstrap',
+      'NextJS',
+      'Typescript'
+    ]
   },
   {
     label: 'Intermediate - I have some experience with this skill',
@@ -46,7 +59,7 @@ export const TECHNICAL_SKILLS = [
       'PyTorch',
       'Django',
       'Motion Graphics',
-      'Typescript'
+      'Tailwind CSS'
     ]
   }
 ];
