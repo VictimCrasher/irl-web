@@ -14,6 +14,10 @@ export const FEATURED_PROJECTS = [
       },
       {
         type: 'youtube',
+        url: 'https://www.youtube.com/embed/eVpDgcexuwc'
+      },
+      {
+        type: 'youtube',
         url: 'https://www.youtube.com/embed/i-U6FZumMXw'
       },
       {
