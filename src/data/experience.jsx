@@ -19,7 +19,7 @@ export const WORK_EXPERIENCE = [
     logo: null,
     icon: <PaintBrushIcon size={48} color="white" />,
     institution: 'Self-Employed',
-    position: 'Commission-based Freelancer',
+    position: 'Web-based Widget Design and Coding Commissions',
     location: 'Jakarta, Indonesia',
     startDate: '2020-11-01',
     endDate: 'now',

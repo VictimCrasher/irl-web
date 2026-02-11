@@ -50,13 +50,22 @@ const About = () => {
               </Typography>
             ))}
           </Stack>
-          {data.cv && (
-            <Link href={data.cv} target="_blank" sx={{ width: 'fit-content' }}>
-              <Button variant="outlined" size="large" endIcon={<ArrowSquareOutIcon />}>
-                <Typography variant="h6">Download My CV</Typography>
-              </Button>
-            </Link>
-          )}
+          <Stack direction="row" gap={2} flexWrap="wrap">
+            {data.cv && (
+              <Link href={data.cv} target="_blank" sx={{ width: 'fit-content' }}>
+                <Button variant="contained" size="large" endIcon={<ArrowSquareOutIcon />}>
+                  <Typography variant="h6">Download My CV</Typography>
+                </Button>
+              </Link>
+            )}
+            {data.portfolio && (
+              <Link href={data.portfolio} target="_blank" sx={{ width: 'fit-content' }}>
+                <Button variant="outlined" size="large" endIcon={<ArrowSquareOutIcon />}>
+                  <Typography variant="h6">Download This Portfolio</Typography>
+                </Button>
+              </Link>
+            )}
+          </Stack>
         </Stack>
       </Stack>
 

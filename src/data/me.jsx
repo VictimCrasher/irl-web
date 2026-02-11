@@ -6,10 +6,12 @@ import {
   CodesandboxLogoIcon,
   YoutubeLogoIcon,
   MediumLogoIcon,
-  CodepenLogoIcon
+  CodepenLogoIcon,
+  CodeIcon
 } from '@phosphor-icons/react';
 
 import cv from './files/CV.pdf';
+import portfolio from './files/Portfolio.pdf';
 import photo from './images/me.png';
 
 export const ME = {
@@ -19,6 +21,7 @@ export const ME = {
     'Consistently delivers high-quality work on time, demonstrating a strong ability to quickly master new technologies and domains.'
   ],
   cv: cv,
+  portfolio: portfolio,
   photo: photo,
   details: [
     {
@@ -62,6 +65,16 @@ export const ME = {
       name: 'CodePen',
       url: 'https://codepen.io/victim_crasher',
       icon: <CodepenLogoIcon size={48} />
+    },
+    {
+      name: 'LeetCode',
+      url: 'https://leetcode.com/u/yZ65qmen1Q/',
+      icon: <CodeIcon size={48} />
+    },
+    {
+      name: 'Hackerrank',
+      url: 'https://www.hackerrank.com/profile/achmadfirdausadi',
+      icon: <CodeIcon size={48} />
     },
     {
       name: 'CodeSandbox',
