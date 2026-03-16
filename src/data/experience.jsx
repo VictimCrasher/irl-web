@@ -40,6 +40,7 @@ export const WORK_EXPERIENCE = [
     description: [
       'Developed and supported a hotel management system serving 200,000+ users, actively contributing to new feature implementation with stakeholders.',
       'Contribute the whole end-to-end development process of various critical features and standalone applications, leveraging client feedback and real-world analytics for data-driven design and implementation.',
+      'Provided operational support for live systems, including bug investigation, issue prioritization, and coordination with backend and product teams to resolve incidents impacting users.',
       'Leverages AI/LLM based tools to maximize productivity and optimize development process.'
     ]
   },
@@ -95,9 +96,10 @@ export const WORK_EXPERIENCE = [
     endDate: '2018-06-01',
     keyTechnologies: ['C', 'MIPS', 'Java', 'Python'],
     description: [
-      'Help students with their assignments and projects, and also help them with their exams.',
+      'Contributed as an assistant lecturer in various courses such as Automata and Language Theory, Operating Systems, etc.',
       'Conduct regular lab sessions to help students understand the concepts of the course.',
-      'Collaborate with lecturers to improve the course content and teaching materials.'
+      'Collaborate with lecturers to improve the course content and teaching materials.',
+      'Help students with their assignments and projects, and also help them with their exams preparation.',
     ]
   },
   {
@@ -128,7 +130,12 @@ export const EDUCATION = [
     endDate: '2019-01-30',
     gpa: '3.71',
     scale: '4.00',
-    description: ['Graduated with an honor of Cum Laude.', 'Able to finish the whole program in 3.5 years.']
+    description: [
+      'Graduated in 3.5 years with the final GPA of 3.71/4.00 and cum-laude predicate.',
+      'Took a specialization in Artificial Intelligence, Multimedia, and Embedded Systems.',
+      'Contributed as an assistant lecturer in various courses such as Automata and Language Theory, Operating Systems, etc.',
+      'Active in extracurricular activities such as the Faculty Student Council, RISTEK (Technology Club), and contributed as a volunteer in various events.',
+    ]
   }
 ].sort(sortByEndDate);
 

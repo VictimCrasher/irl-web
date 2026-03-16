@@ -35,6 +35,29 @@ export const FEATURED_PROJECTS = [
     ]
   },
   {
+    title: 'Simple Teleprompter',
+    year: '2026',
+    type: 'Web Development',
+    keyTechnologies: ['ReactJS', 'Tailwind CSS', 'Electron', 'Typescript'],
+    description: 'A simple teleprompter desktop app, build using Electron + Vite + React.',
+    role: 'Sole Developer',
+    link: 'https://github.com/VictimCrasher/simple-teleprompter',
+    media: [
+      {
+        type: 'youtube',
+        url: 'https://www.youtube.com/embed/3J22XRcbXzU'
+      },
+      {
+        type: 'image',
+        url: 'https://i.imgur.com/Rk8OoU1.png'
+      },
+      {
+        type: 'image',
+        url: 'https://i.imgur.com/xbywDzx.png'
+      }
+    ]
+  },
+  {
     title: 'Inktober Archive',
     year: '2025',
     type: 'Web Development',
@@ -255,3 +278,5 @@ export const FEATURED_PROJECTS = [
     ]
   }
 ];
+
+export const PROJECT_TYPES = [...new Set(FEATURED_PROJECTS.map((project) => project.type))];

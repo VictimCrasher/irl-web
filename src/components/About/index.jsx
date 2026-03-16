@@ -38,7 +38,7 @@ const About = () => {
             <Stack direction="row" columnGap={0.5} rowGap={0} flexWrap="wrap">
               <Typography {...typographyProps}>I'm</Typography>
               {name.map((name, index) => (
-                <Typography {...typographyProps} color="primary" key={index}>
+                <Typography key={name} {...typographyProps} color="primary" key={index}>
                   {name}
                   {index === name.length - 1 && '.'}
                 </Typography>
