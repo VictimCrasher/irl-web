@@ -38,7 +38,7 @@ const About = () => {
             <Stack direction="row" columnGap={0.5} rowGap={0} flexWrap="wrap">
               <Typography {...typographyProps}>I'm</Typography>
               {name.map((name, index) => (
-                <Typography key={name} {...typographyProps} color="primary" key={index}>
+                <Typography key={name} {...typographyProps} color="primary">
                   {name}
                   {index === name.length - 1 && '.'}
                 </Typography>
@@ -58,13 +58,13 @@ const About = () => {
                 </Button>
               </Link>
             )}
-            {data.portfolio && (
-              <Link href={data.portfolio} target="_blank" sx={{ width: 'fit-content' }}>
-                <Button variant="outlined" size="large" endIcon={<ArrowSquareOutIcon />}>
-                  <Typography variant="h6">Download This Portfolio</Typography>
+            {data.portfolio.map((portfolio) => (
+              <Link href={portfolio.url} target="_blank" sx={{ width: 'fit-content' }} key={portfolio.name}>
+                <Button startIcon={portfolio.icon} variant="outlined" size="large" endIcon={<ArrowSquareOutIcon />}>
+                  <Typography variant="h6">{portfolio.name}</Typography>
                 </Button>
               </Link>
-            )}
+            ))}
           </Stack>
         </Stack>
       </Stack>
