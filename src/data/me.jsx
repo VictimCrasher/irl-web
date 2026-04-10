@@ -14,7 +14,6 @@ import {
 
 import cv from './files/CV.pdf';
 import portfolio from './files/Portfolio.pdf';
-import designPortfolio from './files/Design-Portfolio.pdf';
 import photo from './images/me.png';
 
 export const ME = {
@@ -32,7 +31,7 @@ export const ME = {
     },
     {
       name: 'Design Portfolio',
-      url: designPortfolio,
+      url: 'https://drive.google.com/file/d/1AZwNJqXI4o4KJYkI2-37Xu5_9sqpqdbN/view?usp=sharing',
       icon: <PaintBrushIcon size={24} />
     }
   ],
