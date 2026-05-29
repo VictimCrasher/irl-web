@@ -1,3 +1,4 @@
+import tj from './images/tj.png';
 import wasimil from './images/wasimil.png';
 import visi from './images/vpn.png';
 import delligence from './images/delligence.png';
@@ -26,6 +27,19 @@ export const WORK_EXPERIENCE = [
     keyTechnologies: ['Vanilla JS', 'css', 'websocket', 'graphic design'],
     description: [
       'Working on various commission and project to design and implement a widget web-app for a game called “osu!”. The app takes data from the game to a more presentable viewer friendly design for various streamer using HTML, CSS, and JavaScript.'
+    ]
+  },
+  {
+    logo: tj,
+    icon: null,
+    institution: 'PT. Transportasi Jakarta',
+    position: 'Senior Frontend Developer',
+    location: 'Jakarta, Indonesia',
+    startDate: '2026-05-04',
+    endDate: 'now',
+    keyTechnologies: ['ReactJS', 'TypeScript', 'Tailwind CSS', 'Figma'],
+    description: [
+      'Taking part in the development of a internal tool for the company as a part of the company\'s digital transformation.',
     ]
   },
   {

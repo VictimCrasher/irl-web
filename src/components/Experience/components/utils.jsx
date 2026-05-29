@@ -16,9 +16,9 @@ export const getDuration = (startDate, endDate) => {
   let yearLabel = '';
   let monthLabel = '';
 
-  if (years === 1) yearLabel = 'year';
+  if (years >= 0) yearLabel = 'year';
   if (years > 1) yearLabel = 'years';
-  if (months === 1) monthLabel = 'month';
+  if (months >= 0) monthLabel = 'month';
   if (months > 1) monthLabel = 'months';
 
   if (years === 0) return `${months} ${monthLabel}`;
