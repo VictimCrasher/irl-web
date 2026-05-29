@@ -39,7 +39,7 @@ export const WORK_EXPERIENCE = [
     endDate: 'now',
     keyTechnologies: ['ReactJS', 'TypeScript', 'Tailwind CSS', 'Figma'],
     description: [
-      'Taking part in the development of a internal tool for the company as a part of the company\'s digital transformation.',
+      'Taking part in the development of company\'s internal tool as a part of the company\'s digital transformation.',
     ]
   },
   {
