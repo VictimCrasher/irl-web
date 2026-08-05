@@ -1,7 +1,7 @@
 import "./App.scss";
 import Header from "./components/Header";
 import ScrollToTop from "./components/ScrollToTop";
-import Hero from "./components/Hero/Hero";
+import Hero3D from "./components/Hero3D/Hero3D";
 import About from "./components/About";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
@@ -14,7 +14,7 @@ function App() {
 		<div className="App">
 			<Header />
 			<ScrollToTop />
-			<Hero />
+			<Hero3D />
 			<About />
 			<Experience />
 			<Skills />
