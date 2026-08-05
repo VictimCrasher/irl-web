@@ -1,7 +1,8 @@
-import React, { Suspense, lazy, useCallback, useEffect, useRef, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import './Hero3D.scss';
 import { Stack, Typography, Button } from '@mui/material';
 import { useSceneQuality } from './hooks/useSceneQuality';
+import { useGyroOrbit } from './hooks/useGyroOrbit';
 import { CAMERA_ORBIT } from './constants';
 
 const SolarSystemScene = lazy(() => import('./scene/SolarSystemScene'));
@@ -9,9 +10,9 @@ const SolarSystemScene = lazy(() => import('./scene/SolarSystemScene'));
 const PHI_MIN = 0.35;
 const PHI_MAX = Math.PI - 0.45;
 const DRAG_SENSITIVITY = 0.005;
-const HINT_AUTO_HIDE_MS = 7000;
 
-const isInteractiveTarget = (target) => Boolean(target?.closest?.('button, a, input, textarea, [role="button"]'));
+const isInteractiveTarget = (target) =>
+  Boolean(target?.closest?.('button, a, input, textarea, [role="button"]'));
 
 const Hero3D = () => {
   const quality = useSceneQuality();
@@ -19,10 +20,13 @@ const Hero3D = () => {
     theta: CAMERA_ORBIT.theta,
     phi: CAMERA_ORBIT.phi,
     radius: CAMERA_ORBIT.radius,
-    dragging: false
+    dragging: false,
   });
   const dragState = useRef({ active: false, lastX: 0, lastY: 0 });
   const [dragging, setDragging] = useState(false);
+
+  const { mode, permission, enableGyro, isTouch } = useGyroOrbit(orbitRef);
+  const useDrag = mode === 'drag';
 
   useEffect(() => {
     const onWindowUp = () => {
@@ -43,17 +47,18 @@ const Hero3D = () => {
   const onScroll = () => {
     window.scrollTo({
       top: window.innerHeight - 65,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   };
 
   const onPointerDown = (event) => {
+    if (!useDrag) return;
     if (event.button !== 0 || isInteractiveTarget(event.target)) return;
 
     dragState.current = {
       active: true,
       lastX: event.clientX,
-      lastY: event.clientY
+      lastY: event.clientY,
     };
     orbitRef.current.dragging = true;
     setDragging(true);
@@ -62,7 +67,7 @@ const Hero3D = () => {
   };
 
   const onPointerMove = (event) => {
-    if (!dragState.current.active) return;
+    if (!useDrag || !dragState.current.active) return;
 
     event.preventDefault();
 
@@ -72,7 +77,10 @@ const Hero3D = () => {
     dragState.current.lastY = event.clientY;
 
     orbitRef.current.theta -= dx * DRAG_SENSITIVITY;
-    orbitRef.current.phi = Math.min(PHI_MAX, Math.max(PHI_MIN, orbitRef.current.phi + dy * DRAG_SENSITIVITY));
+    orbitRef.current.phi = Math.min(
+      PHI_MAX,
+      Math.max(PHI_MIN, orbitRef.current.phi + dy * DRAG_SENSITIVITY)
+    );
   };
 
   const endDrag = (event) => {
@@ -87,11 +95,25 @@ const Hero3D = () => {
     }
   };
 
+  const onEnableTilt = async (event) => {
+    event.stopPropagation();
+    await enableGyro();
+  };
+
+  const hintText =
+    mode === 'gyro'
+      ? 'Tilt your phone to explore'
+      : mode === 'gyro-pending'
+        ? 'Tap to enable tilt control'
+        : isTouch
+          ? 'Drag to explore'
+          : 'Click & drag to explore';
+
   return (
     <Stack
       spacing={6}
       id="hero"
-      className={`hero${dragging ? ' hero--dragging' : ''}`}
+      className={`hero${dragging ? ' hero--dragging' : ''}${useDrag ? '' : ' hero--gyro'}`}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={endDrag}
@@ -103,10 +125,19 @@ const Hero3D = () => {
         </Suspense>
       </div>
 
-      <div className="orbit-hint" aria-hidden="true">
-        <span className="orbit-hint__icon" />
-        Click &amp; drag to explore
-      </div>
+      {mode === 'gyro-pending' && permission === 'prompt' ? (
+        <button type="button" className="orbit-hint orbit-hint--action" onClick={onEnableTilt}>
+          <span className="orbit-hint__icon orbit-hint__icon--tilt" />
+          {hintText}
+        </button>
+      ) : (
+        <div className="orbit-hint" aria-hidden="true">
+          <span
+            className={`orbit-hint__icon${mode === 'gyro' || isTouch ? ' orbit-hint__icon--tilt' : ''}`}
+          />
+          {hintText}
+        </div>
+      )}
 
       <Stack direction="row" spacing={2} flexWrap="wrap" justifyContent="center" alignItems="center">
         <Typography variant="h1" className="hero-title">
@@ -122,7 +153,13 @@ const Hero3D = () => {
       <Typography variant="h5" textAlign="center" className="hero-subtitle">
         Frontend Developer • AI Developer • Graphic Designer • Freelancer
       </Typography>
-      <Button variant="contained" color="primary" size="large" sx={{ fontSize: '1.2rem', color: 'secondary.main' }} onClick={onScroll}>
+      <Button
+        variant="contained"
+        color="primary"
+        size="large"
+        sx={{ fontSize: '1.2rem', color: 'secondary.main' }}
+        onClick={onScroll}
+      >
         Learn More
       </Button>
     </Stack>
