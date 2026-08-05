@@ -79,7 +79,7 @@ const Hero3D = () => {
     orbitRef.current.theta -= dx * DRAG_SENSITIVITY;
     orbitRef.current.phi = Math.min(
       PHI_MAX,
-      Math.max(PHI_MIN, orbitRef.current.phi + dy * DRAG_SENSITIVITY)
+      Math.max(PHI_MIN, orbitRef.current.phi - dy * DRAG_SENSITIVITY)
     );
   };
 
